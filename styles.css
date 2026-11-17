@@ -1,0 +1,152 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  min-height: 100vh;
+  padding: 30px 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  color: #1d4ed8;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+section {
+  background: #ffffff;
+  padding: 22px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+  font-size: 19px;
+  margin-bottom: 18px;
+  color: #334155;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#form-incidencia button {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+}
+
+#form-incidencia button:hover {
+  background: #1d4ed8;
+}
+
+#btn-purgar {
+  background: #dc2626;
+  color: white;
+  margin-bottom: 15px;
+}
+
+#btn-purgar:hover {
+  background: #b91c1c;
+}
+
+#lista-outbox {
+  list-style: none;
+}
+
+#lista-outbox li {
+  padding: 13px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+#lista-outbox li.pendiente {
+  background: #fef3c7;
+  border-left: 4px solid #d97706;
+  color: #92400e;
+}
+
+#lista-outbox li.sincronizado {
+  background: #dcfce7;
+  border-left: 4px solid #16a34a;
+  color: #166534;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  header h1 {
+    font-size: 23px;
+  }
+
+  section {
+    padding: 17px;
+  }
+}
