@@ -9,7 +9,6 @@ if ('serviceWorker' in navigator) {
         .catch((error) => {
             console.error('[SW] Error al registrar el Service Worker:', error);
         });
-
     navigator.serviceWorker.addEventListener('message', (event) => {
         if (event.data && event.data.tipo === 'OUTBOX_SINCRONIZADO') {
             console.log('[UI] El Service Worker terminó de sincronizar. Actualizando bandeja...');
@@ -61,7 +60,6 @@ function procesarEnvioReporte(datosFormulario) {
 
 function sincronizarPendientesFallback() {
     console.log('[Outbox] Conexión detectada. Buscando registros pendientes...');
-
     return obtenerTodosLosRegistros()
         .then((registros) => {
             const pendientes = registros.filter((item) => item.estado === 'pendiente');
@@ -190,8 +188,13 @@ btnPurgar.addEventListener('click', () => {
 // Escuchar el regreso de la conectividad
 
 window.addEventListener('online', () => {
-  if (!('SyncManager' in window)) {
+  if ('serviceWorker' in navigator && 'SyncManager' in window) {
+    navigator.serviceWorker.ready.then((registro) => {
+      registro.sync.register('sync-reportes');
+    });
+  } else {
     console.log('[Outbox] Navegador sin Background Sync. Ejecutando respaldo...');
     sincronizarPendientesFallback();
   }
 });
+renderizarColaOutbox();
