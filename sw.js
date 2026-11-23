@@ -1,7 +1,7 @@
 
 importScripts('./db-helper.js');
 
-const CACHE_STATIC_NAME = 'static-outbox-v2';
+const CACHE_STATIC_NAME = 'static-outbox-v1';
 const STATIC_FILES = ['./', './index.html', './styles.css', './db-helper.js', './app.js', './manifest.json'];
 
 self.addEventListener('install', (event) => {
